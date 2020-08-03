@@ -1,0 +1,755 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width">
+	
+	<meta name="full-screen" content="yes">
+	<meta name="browsermode" content="application">
+	<meta name="x5-fullscreen" content="true">
+	<meta name="x5-page-mode" content="app">
+	<title>浏览器主页 - 万里无云</title>
+	<link rel="stylesheet" href="https://cdn.bootcdn.net/ajax/libs/mdui/1.0.0/css/mdui.min.css"/>
+	<style>
+		
+		.cover {
+			width: 100%;
+			height: 100%;
+			position: relative;
+			color: #888;
+			overflow: hidden;
+			background-repeat: no-repeat;
+			background-size: cover;
+		}
+	</style>
+	<script src="https://api.uixsj.cn/hitokoto/get?type=hitokoto&code=js" type="text/javascript"></script>
+	<link href="https://cdnjs.loli.net/ajax/libs/font-awesome/5.8.0/css/all.min.css" rel="stylesheet">
+
+</head>
+
+<body class="mdui-drawer-body-left mdui-appbar-with-toolbar mdui-drawer-body-right mdui-theme-primary-indigo mdui-loaded">
+	
+	<header id="banner" mdui-headroom class="mdui-appbar mdui-appbar-fixed">
+		<div class="mdui-appbar mdui-appbar-fixed mdui-headroom mdui-headroom-pinned-toolbar mdui-color-teal-700">
+			<div class="mdui-toolbar">
+				<button class="mdui-btn mdui-btn-icon mdui-ripple" mdui-drawer="{target: '#drawer_left'}"><i class="mdui-icon material-icons">menu</i></button>
+				<div class="mdui-toolbar-spacer" href="/">MDUI</div>
+				<button class="mdui-btn mdui-btn-icon mdui-ripple" mdui-drawer-close mdui-dialog="{target: '#Search_dialog'}"><i class="mdui-icon material-icons">search</i></button>
+				<button class="mdui-btn mdui-btn-icon mdui-ripple" mdui-drawer="{target: '#drawer_right'}"><i class="mdui-icon material-icons">more_vert</i></button>
+			</div>
+		</div>
+	</header>
+	
+	<aside id="drawer_left" class="mdui-drawer mdui-color-green-50" style="z-index: 5000;padding-bottom:16px;padding-top:56px;">
+		
+		<header id="drawer_left_banner" mdui-headroom class="mdui-appbar mdui-appbar-fixed">
+			<div class="mdui-appbar mdui-appbar-fixed mdui-headroom mdui-headroom-pinned-toolbar mdui-color-teal-700">
+				<div class="mdui-toolbar">
+					<button class="mdui-btn mdui-btn-icon mdui-ripple" mdui-drawer-close ><i class="mdui-icon material-icons">close</i></button>
+					<div class="mdui-toolbar-spacer" href="/">MDUI</div>
+					<button class="mdui-btn mdui-btn-icon mdui-ripple" mdui-drawer-close mdui-dialog="{target: '#Qr_reward'}"><i class="mdui-icon material-icons">free_breakfast</i></button>
+				</div>
+			</div>
+		</header>
+		
+		<img class="mdui-img-fluid" src="https://blog.mrabit.com/bing/today"/>
+		<br></br>
+		<div class="mdui-center mdui-text-left mdui-ripple" style="width: 76%"><!-- script>hitokoto()</script -->你若盛开，清风自来。</div>
+		<br></br>
+		<ul class="mdui-list" mdui-collapse="{accordion: true}">
+			<a href="https://blog.hovthen.com/"><li class="mdui-list-item mdui-ripple"><i class="mdui-list-item-icon mdui-icon material-icons mdui-text-color-brown">collections_bookmark</i><div class="mdui-list-item-content">博客 / Blog</div></li></a>
+			<a href="https://m.hovthen.com/"><li class="mdui-list-item mdui-ripple"><i class="mdui-list-item-icon mdui-icon material-icons mdui-text-color-green">public</i><div class="mdui-list-item-content">主页 / Home</div></li></a>
+			<a href="https://m.hovthen.com/hov/"><li class="mdui-list-item mdui-ripple"><i class="mdui-list-item-icon mdui-icon material-icons mdui-text-color-blue">gesture</i><div class="mdui-list-item-content">导航 / Guide</div></li></a>
+			<li class="mdui-collapse-item mdui-collapse-item-open">
+				<div class="mdui-collapse-item-header mdui-list-item mdui-ripple"><i class="mdui-list-item-icon mdui-icon material-icons mdui-text-color-teal">comment</i><div class="mdui-list-item-content">关于 / About</div><i class="mdui-collapse-item-arrow mdui-icon material-icons">keyboard_arrow_down</i></div>
+				<ul class="mdui-collapse-item-body mdui-list mdui-list-dense">
+					<a href="https://blog.hovthen.com/index.php/start-page.html"><li class="mdui-list-item mdui-ripple">关于</li></a>
+					<a href="https://blog.hovthen.com/index.php/contribute.html"><li class="mdui-list-item mdui-ripple">投稿</li></a>
+				</ul>
+			</li>
+		</ul>
+	</aside>
+	
+	<aside id="drawer_right" class="mdui-drawer mdui-drawer-right mdui-drawer-close mdui-color-green-50" style="z-index: 5000;padding-bottom:128px;padding-top:64px;">
+		<div class="mdui-toolbar mdui-appbar-fixed mdui-color-teal-700">
+				<a class="mdui-toolbar-spacer"></a>
+				<button class="mdui-btn mdui-btn-icon mdui-ripple" mdui-drawer-close>
+					<i class="mdui-icon material-icons">close</i>
+				</button>
+		</div>
+		
+		<div class="mdui-container">
+			<form method="post" id="search" action="https://blog.hovthen.com/">
+				<div class="mdui-textfield mdui-textfield-floating-label mdui-textfield-focus">
+					<label class="mdui-textfield-label">Search</label>
+					<input class="mdui-textfield-input" type="text" id="s" name="s">
+				</div>
+			</form>
+		</div>
+		
+		<div class="mdui-panel mdui-color-green-50" mdui-panel>
+			
+			<div class="mdui-panel-item mdui-panel-item-open mdui-color-green-50">
+				<div class="mdui-panel-item-header "><i class="mdui-icon material-icons mdui-text-color-brown mdui-float-left">whatshot</i><div class="mdui-toolbar-spacer"></div><div class="mdui-float-right">热门精选</div></div>
+				<div class="mdui-panel-item-body mdui-center mdui-row">
+					<div class="mdui-chip mdui-col-xs-6"><a rel="nofollow" href="https://www.taobao.com" target="_blank"><div class="mdui-chip-title mdui-ripple mdui-text-color-black"><span class="fas fa-cart-plus" style="color: #ff6019;"></span>  淘宝网</div></a></div>
+					<div class="mdui-chip mdui-col-xs-6"><a rel="nofollow" href="https://www.weibo.com" target="_blank"><div class="mdui-chip-title mdui-ripple mdui-text-color-black"><span class="fab fa-weibo" style="color: #e6162d;"></span>  微博</div></a></div>
+					<div class="mdui-chip mdui-col-xs-6"><a rel="nofollow" href="https://translate.google.cn/?hl=zh-CN" target="_blank"><div class="mdui-chip-title mdui-ripple mdui-text-color-black"><span class="fas fa-language" style="color: #02f;"></span>  谷歌翻译</div></a></div>
+					<div class="mdui-chip mdui-col-xs-6"><a rel="nofollow" href="https://pan.baidu.com" target="_blank"><div class="mdui-chip-title mdui-ripple mdui-text-color-black"><span class="fas fa-cloud-download-alt" style="color: #148bfe;"></span>  百度网盘</div></a></div>
+				</div>
+			</div>
+			
+			<div class="mdui-panel-item mdui-panel-item-open mdui-color-green-50">
+				<div class="mdui-panel-item-header "><i class="mdui-icon material-icons mdui-text-color-brown mdui-float-left">assistant_photo</i><div class="mdui-toolbar-spacer"></div><div class="mdui-float-right">常用网址</div></div>
+				<div class="mdui-panel-item-body mdui-center mdui-row">
+					<div class="mdui-chip mdui-col-xs-6"><a rel="nofollow" href="https://mail.google.com/mail/u/0/#inbox" target="_blank"><div class="mdui-chip-title mdui-ripple mdui-text-color-black"><span class="far fa-envelope" style="color: #f03;"></span>  Gmail</div></a></div>
+					<div class="mdui-chip mdui-col-xs-6"><a rel="nofollow" href="https://www.instagram.com" target="_blank"><div class="mdui-chip-title mdui-ripple mdui-text-color-black"><span class="fab fa-instagram" style="color: #93009f;"></span>  Instagram</div></a></div>
+					<div class="mdui-chip mdui-col-xs-6"><a rel="nofollow" href="https://www.taobao.com" target="_blank"><div class="mdui-chip-title mdui-ripple mdui-text-color-black"><span class="fas fa-cart-plus" style="color: #ff6019;"></span>  淘宝网</div></a></div>
+					<div class="mdui-chip mdui-col-xs-6"><a rel="nofollow" href="https://www.weibo.com" target="_blank"><div class="mdui-chip-title mdui-ripple mdui-text-color-black"><span class="fab fa-weibo" style="color: #e6162d;"></span>  微博</div></a></div>
+					<div class="mdui-chip mdui-col-xs-6"><a rel="nofollow" href="https://translate.google.cn/?hl=zh-CN" target="_blank"><div class="mdui-chip-title mdui-ripple mdui-text-color-black"><span class="fas fa-language" style="color: #02f;"></span>  谷歌翻译</div></a></div>
+					<div class="mdui-chip mdui-col-xs-6"><a rel="nofollow" href="https://www.twitter.com" target="_blank"><div class="mdui-chip-title mdui-ripple mdui-text-color-black"><span class="fab fa-twitter" style="color: #00bcff;"></span>  Twitter</div></a></div>
+					<div class="mdui-chip mdui-col-xs-6"><a rel="nofollow" href="https://duckduckgo.com/?kl=cn-zh&amp;l=cn-zh" target="_blank"><div class="mdui-chip-title mdui-ripple mdui-text-color-black"><span class="fas fa-mask" style="color:#fcb600"></span>  鸭鸭走</div></a></div>
+					<div class="mdui-chip mdui-col-xs-6"><a rel="nofollow" href="https://feedly.com" target="_blank"><div class="mdui-chip-title mdui-ripple mdui-text-color-black"><span class="fas fa-rss" style="color: #11dd00;"></span>  Feedly</div></a></div>
+					<div class="mdui-chip mdui-col-xs-6"><a rel="nofollow" href="https://pan.baidu.com" target="_blank"><div class="mdui-chip-title mdui-ripple mdui-text-color-black"><span class="fas fa-cloud-download-alt" style="color: #148bfe;"></span>  百度网盘</div></a></div>
+				</div>
+			</div>
+			
+			<div class="mdui-panel-item mdui-panel-item-open mdui-color-green-50">
+				<div class="mdui-panel-item-header "><i class="mdui-icon material-icons mdui-text-color-brown mdui-float-left">ondemand_video</i><div class="mdui-toolbar-spacer"></div><div class="mdui-float-right">视频媒体</div></div>
+				<div class="mdui-panel-item-body mdui-center mdui-row">
+					<div class="mdui-chip mdui-col-xs-6"><a rel="nofollow" href="https://sou.yyv.me/movies/" target="_blank"><div class="mdui-chip-title mdui-ripple mdui-text-color-black"><span class="fab fa-searchengin" style="color:#f93;"></span>  影视搜索</div></a></div>
+					<div class="mdui-chip mdui-col-xs-6"><a rel="nofollow" href="https://www.youtube.com/" target="_blank"><div class="mdui-chip-title mdui-ripple mdui-text-color-black"><span class="fab fa-youtube" style="color:#f03;"></span>  Youtube</div></a></div>
+					<div class="mdui-chip mdui-col-xs-6"><a rel="nofollow" href="https://v.qq.com/" target="_blank"><div class="mdui-chip-title mdui-ripple mdui-text-color-black"><span class="fas fa-play" style="color:#2a0;"></span>  腾讯视频</div></a></div>
+					<div class="mdui-chip mdui-col-xs-6"><a rel="nofollow" href="https://www.youku.com/" target="_blank"><div class="mdui-chip-title mdui-ripple mdui-text-color-black"><span class="far fa-play-circle" style="color:#09e;"></span>  优酷</div></a></div>
+					<div class="mdui-chip mdui-col-xs-6"><a rel="nofollow" href="https://www.iqiyi.com/" target="_blank"><div class="mdui-chip-title mdui-ripple mdui-text-color-black"><span class="fas fa-video" style="color:#1d0;"></span>  爱奇艺</div></a></div>
+					<div class="mdui-chip mdui-col-xs-6"><a rel="nofollow" href="http://www.zimuzu.io/" target="_blank"><div class="mdui-chip-title mdui-ripple mdui-text-color-black"><span class="fas fa-closed-captioning"></span>  字幕组</div></a></div>
+					<div class="mdui-chip mdui-col-xs-6"><a rel="nofollow" href="http://www.acfun.cn/index.html" target="_blank"><div class="mdui-chip-title mdui-ripple mdui-text-color-black"><span class="fas fa-mountain" style="color:#f33;"></span>  ACFUN</div></a></div>
+					<div class="mdui-chip mdui-col-xs-6"><a rel="nofollow" href="https://www.bilibili.com/" target="_blank"><div class="mdui-chip-title mdui-ripple mdui-text-color-black"><span class="fas fa-compact-disc" style="color:#09e;"></span>  哔哩哔哩</div></a></div>
+					<div class="mdui-chip mdui-col-xs-6"><a rel="nofollow" href="https://sou.yyv.me/tv/" target="_blank"><div class="mdui-chip-title mdui-ripple mdui-text-color-black"><span class="fas fa-satellite-dish" style="color:#9ae;"></span>  直播电视</div></a></div>
+					<div class="mdui-chip mdui-col-xs-6"><a rel="nofollow" href="https://music.yyv.me/" target="_blank"><div class="mdui-chip-title mdui-ripple mdui-text-color-black"><span class="fas fa-music" style="color:#f4a;"></span>  音乐解析</div></a></div>
+				</div>
+			</div>
+			
+			<div class="mdui-panel-item mdui-panel-item-open mdui-color-green-50">
+				<div class="mdui-panel-item-header "><i class="mdui-icon material-icons mdui-text-color-brown mdui-float-left">polymer</i><div class="mdui-toolbar-spacer"></div><div class="mdui-float-right">程序开发</div></div>
+				<div class="mdui-panel-item-body mdui-center mdui-row">
+					<div class="mdui-chip mdui-col-xs-6"><a rel="nofollow" href="http://www.w3school.com.cn/" target="_blank"><div class="mdui-chip-title mdui-ripple mdui-text-color-black"><span class="fab fa-css3" style="color:#c03;"></span>  W3school</div></a></div>
+					<div class="mdui-chip mdui-col-xs-6"><a rel="nofollow" href="https://github.com/" target="_blank"><div class="mdui-chip-title mdui-ripple mdui-text-color-black"><span class="fab fa-github"></span>  Github</div></a></div>
+					<div class="mdui-chip mdui-col-xs-6"><a rel="nofollow" href="https://codepen.io/" target="_blank"><div class="mdui-chip-title mdui-ripple mdui-text-color-black"><span class="fab fa-codepen"></span>  Codepen</div></a></div>
+					<div class="mdui-chip mdui-col-xs-6"><a rel="nofollow" href="https://ping.pe" target="_blank"><div class="mdui-chip-title mdui-ripple mdui-text-color-black"><span class="fas fa-network-wired" style="color:#1d0;"></span>  Ping.pe</div></a></div>
+					<div class="mdui-chip mdui-col-xs-6"><a rel="nofollow" href="https://www.mdeditor.com/" target="_blank"><div class="mdui-chip-title mdui-ripple mdui-text-color-black"><span class="fab fa-markdown" style="color:#09f;"></span>  MD编辑器</div></a></div>
+					<div class="mdui-chip mdui-col-xs-6"><a rel="nofollow" href="https://www.52pojie.cn/" target="_blank"><div class="mdui-chip-title mdui-ripple mdui-text-color-black"><span class="fas fa-theater-masks" style="color:#f03;"></span>  吾爱破解</div></a></div>
+					<div class="mdui-chip mdui-col-xs-6"><a rel="nofollow" href="https://segmentfault.com/" target="_blank"><div class="mdui-chip-title mdui-ripple mdui-text-color-black"><span class="fas fa-comment-dots" style="color:#096;"></span>  SF思否</div></a></div>
+					<div class="mdui-chip mdui-col-xs-6"><a rel="nofollow" href="http://web.jobbole.com/" target="_blank"><div class="mdui-chip-title mdui-ripple mdui-text-color-black"><span class="fas fa-user-secret" style="color: #09c;"></span>  伯乐在线</div></a></div>
+					<div class="mdui-chip mdui-col-xs-6"><a rel="nofollow" href="https://miku.tools/" target="_blank"><div class="mdui-chip-title mdui-ripple mdui-text-color-black"><span class="fas fa-tools"></span>  Miku工具</div></a></div>
+					<div class="mdui-chip mdui-col-xs-6"><a rel="nofollow" href="http://cubic-bezier.com" target="_blank"><div class="mdui-chip-title mdui-ripple mdui-text-color-black"><span class="fas fa-bezier-curve" style="color: #f08;"></span>  贝赛尔曲线</div></a></div>
+					<div class="mdui-chip mdui-col-xs-6"><a rel="nofollow" href="https://cdnjs.com/" target="_blank"><div class="mdui-chip-title mdui-ripple mdui-text-color-black"><span class="fab fa-js-square" style="color: #e52;"></span>  CdnJs</div></a></div>
+					<div class="mdui-chip mdui-col-xs-6"><a rel="nofollow" href="https://fontawesome.com/icons?d=gallery&amp;m=free" target="_blank"><div class="mdui-chip-title mdui-ripple mdui-text-color-black"><span class="fab fa-font-awesome" style="color: #4af;"></span>  Font A.</div></a></div>
+					<div class="mdui-chip mdui-col-xs-6"><a rel="nofollow" href="https://5iux.cn/base64" target="_blank"><div class="mdui-chip-title mdui-ripple mdui-text-color-black"><span class="far fa-file-code" style="color:#1d0;"></span>  Base64</div></a></div>
+					<div class="mdui-chip mdui-col-xs-6"><a rel="nofollow" href="https://msdn.itellyou.cn/" target="_blank"><div class="mdui-chip-title mdui-ripple mdui-text-color-black"><span class="fab fa-windows" style="color: #48c;"></span>  MSDN下载</div></a></div>
+				</div>
+			</div>
+			
+			<div class="mdui-panel-item mdui-panel-item-open mdui-color-green-50">
+				<div class="mdui-panel-item-header "><i class="mdui-icon material-icons mdui-text-color-brown mdui-float-left">text_fields</i><div class="mdui-toolbar-spacer"></div><div class="mdui-float-right">设计美工</div></div>
+				<div class="mdui-panel-item-body mdui-center mdui-row">
+					<div class="mdui-chip mdui-col-xs-6"><a rel="nofollow" href="https://web.yyv.me/" target="_blank"><div class="mdui-chip-title mdui-ripple mdui-text-color-black"><span class="fas fa-map-signs"></span>  设计导航</div></a></div>
+					<div class="mdui-chip mdui-col-xs-6"><a rel="nofollow" href="https://www.pinterest.com/" target="_blank"><div class="mdui-chip-title mdui-ripple mdui-text-color-black"><span class="fab fa-pinterest" style="color:#e02;"></span>  Pinterest</div></a></div>
+					<div class="mdui-chip mdui-col-xs-6"><a rel="nofollow" href="https://www.behance.net/" target="_blank"><div class="mdui-chip-title mdui-ripple mdui-text-color-black"><span class="fab fa-behance" style="color:#56f;"></span>  Behance</div></a></div>
+					<div class="mdui-chip mdui-col-xs-6"><a rel="nofollow" href="https://www.dribbble.com/" target="_blank"><div class="mdui-chip-title mdui-ripple mdui-text-color-black"><span class="fab fa-dribbble" style="color:#e48;"></span>  Dribbble</div></a></div>
+					<div class="mdui-chip mdui-col-xs-6"><a rel="nofollow" href="https://huaban.com/" target="_blank"><div class="mdui-chip-title mdui-ripple mdui-text-color-black"><span class="fas fa-spa" style="color:#f06;"></span>  花瓣</div></a></div>
+					<div class="mdui-chip mdui-col-xs-6"><a rel="nofollow" href="https://www.zcool.com.cn/" target="_blank"><div class="mdui-chip-title mdui-ripple mdui-text-color-black"><span class="far fa-object-group" style="color:#f90;"></span>  站酷</div></a></div>
+					<div class="mdui-chip mdui-col-xs-6"><a rel="nofollow" href="https://www.iconfont.cn/" target="_blank"><div class="mdui-chip-title mdui-ripple mdui-text-color-black"><span class="fas fa-pencil-ruler" style="color: #ff6019;"></span>  阿里图标</div></a></div>
+					<div class="mdui-chip mdui-col-xs-6"><a rel="nofollow" href="https://www.iconfinder.com/" target="_blank"><div class="mdui-chip-title mdui-ripple mdui-text-color-black"><span class="fas fa-eye"></span>  IconFinder</div></a></div>
+					<div class="mdui-chip mdui-col-xs-6"><a rel="nofollow" href="https://uiiiuiii.com/" target="_blank"><div class="mdui-chip-title mdui-ripple mdui-text-color-black"><span class="fas fa-chalkboard-teacher" style="color:#0aa;"></span>  优设教程</div></a></div>
+					<div class="mdui-panel-item mdui-panel-item-open">
+				</div>
+			</div>
+			
+		</div>
+	</aside>
+	
+	<main class="mdui-color-white" style="height:96vh;width:100vw;max-height:580px;">
+		<div class="mdui-card" style="height:100%;max-height:580px">
+			<div class="mdui-card-media">
+				<div class="mdui-ripple" style="height:96vh;width:100vw;max-height:580px;background:url(https://blog.mrabit.com/bing/today)no-repeat;background-size:cover;"></div>
+				<div class="mdui-card-media-covered mdui-card-media-covered-transparent">
+					<div class="mdui-card-primary">
+						<div class="mdui-card-primary-title mdui-ripple" id="showtime_now"></div>
+						<div class="mdui-card-primary-subtitle mdui-ripple" id="showtime_week"></div>
+					</div>
+					<div class="mdui-card-content mdui-ripple" id="show_hitokoto"><script>hitokoto()</script></div>
+					<div class="mdui-card-actions">
+						<button class="mdui-btn mdui-ripple mdui-shadow-24">讲个笑话</button>
+						<button class="mdui-btn mdui-ripple mdui-shadow-24">换一换</button>
+						<button class="mdui-btn mdui-btn-icon mdui-float-right mdui-shadow-24" onclick="javascript:scroll(200,1000)"><i class="mdui-icon material-icons">expand_more</i></button>
+					</div>
+					<br/>
+					<br/><br/>
+					<br/><br/>
+					<br/><br/>
+					<br/><br/>
+					<br/>
+				</div>
+				
+				<div class="mdui-card-menu">
+					<button class="mdui-btn mdui-btn-icon mdui-text-color-white" onclick="call()"><i class="mdui-icon material-icons">share</i></button>
+				</div>
+			</div>
+		</div>
+		<br/><br/>
+			
+		<div id="hopage mdui-shadow-16" class="mdui-container mdui-card">
+			<div class="mdui-card-media">
+				<img src="https://api.paugram.com/wallpaper/?source=sina" class="mdui-m-t-1"/>
+				
+				<div class="mdui-card-media-covered mdui-card-media-covered-transparent">
+					<div class="mdui-card-primary">
+						<div class="mdui-card-primary-title mdui-text-color-black">Welcome</div>
+						<div class="mdui-card-primary-subtitle mdui-text-color-black">今天干点什么好呢？</div>
+					</div>
+				</div>
+			</div>
+			
+			<div id="search" class="mdui-container">
+ 				<div class="mdui-panel" mdui-panel>
+					<div class="mdui-panel-item">
+						<div class="mdui-panel-item-header">
+							<div class="mdui-textfield mdui-textfield-expandable mdui-float-right">
+								<button class="mdui-textfield-icon mdui-btn mdui-btn-icon mdui-panel-item-title"><i class="mdui-icon material-icons">search</i></button>
+								<form action="https://www.baidu.com/s?wd=" method="get" target="_blank" id="super-search-fm">
+									<input class="mdui-textfield-input" type="text" id="search-text" placeholder="输入关键字搜索"/>
+								</form>
+								<button class="mdui-textfield-close mdui-btn mdui-btn-icon" onclick='document.getElementById("search_tips").innerHTML = "<br/>"'><i class="mdui-icon material-icons">close</i></button>
+							</div>
+							<div class="mdui-panel-item-summary"></div>
+							<i class="mdui-panel-item-arrow mdui-icon material-icons">keyboard_arrow_down</i>
+						</div>
+						<div class="mdui-panel-item-body">
+								
+							<ul id="search_tips" class="mdui-list">
+								<!-- 搜索建议
+									<!a href="https://www.baidu.com/s?wd=' + ele + '"><li class="mdui-list-item mdui-ripple"><div class="mdui-list-item-content mdui-float-left"><nobr>' + ele + '</nobr></div><i class="mdui-list-item-icon mdui-icon material-icons mdui-float-right">arrow_forward</i></li></a>
+								-->
+							</ul>
+							<div class="mdui-divider"></div>
+							
+							<div class="mdui-panel" mdui-panel>
+								<div class="mdui-panel-item">
+									<div class="mdui-panel-item-header">
+										<div class="mdui-panel-item-title" mdui-drawer-close></div>
+										<div class="mdui-panel-item-summary">切换搜索引擎</div>
+										<i class="mdui-panel-item-arrow mdui-icon material-icons">keyboard_arrow_down</i>
+									</div>
+									<div class="mdui-panel-item-body">
+										<li class="mdui-list-item mdui-ripple">点击上方<i class="mdui-icon material-icons">search</i>进行搜索</li>
+										<label class="mdui-list-item mdui-ripple">
+											<div class="mdui-checkbox">
+											<input type="checkbox" id="set-search-blank" class="bubble-3" autocomplete="off" />
+											<i class="mdui-checkbox-icon"></i>
+											</div>
+											<div class="mdui-list-item-content">新窗口访问</div>
+										</label>
+										<ul class="mdui-list" mdui-collapse="{accordion: true}">
+											<li class="mdui-collapse-item mdui-collapse-item-open">
+												<div class="mdui-collapse-item-header mdui-list-item mdui-ripple"><div class="mdui-list-item-content">常用</div><i class="mdui-collapse-item-arrow mdui-icon material-icons">keyboard_arrow_down</i></div>
+												<div class="mdui-collapse-item-body mdui-btn-group">
+													<button class="mdui-btn mdui-btn-dense"><input onclick="bw()" checked="" hidden="" type="radio" name="type" id="type-baidu" value="https://www.baidu.com/s?wd=" data-placeholder="百度一下" /><label for="type-baidu"><span>百度</span></label></button>
+													<button class="mdui-btn mdui-btn-dense"><input onclick="bw()" hidden="" type="radio" name="type" id="type-google" value="https://www.google.com/search?q=" data-placeholder="谷歌两下" /><label for="type-google"><span>Google</span></label></button>
+													<button class="mdui-btn mdui-btn-dense"><input onclick="bw()" hidden="" type="radio" name="type" id="type-zhihu" value="https://www.zhihu.com/search?type=content&amp;q=" data-placeholder="知乎" /><label for="type-zhihu"><span>知乎</span></label></button>
+													<button class="mdui-btn mdui-btn-dense"><input onclick="bw()" hidden="" type="radio" name="type" id="type-taobao" value="http://gouwu.5ai.pp.ua/index.php?r=l&kw=" data-placeholder="淘宝优惠券" /><label for="type-taobao"><span>优惠券</span></label></button>
+												</div>
+											</li>
+											<li class="mdui-collapse-item">
+												<div class="mdui-collapse-item-header mdui-list-item mdui-ripple"><div class="mdui-list-item-content">搜索</div><i class="mdui-collapse-item-arrow mdui-icon material-icons">keyboard_arrow_down</i></div>
+												<div class="mdui-collapse-item-body mdui-btn-group">
+													<button class="mdui-btn mdui-btn-dense"><input onclick="bw()" hidden="" type="radio" name="type" id="type-bing" value="https://cn.bing.com/search?q=" data-placeholder="Bing搜索" /><label for="type-bing"><span>Bing</span></label></button>
+													<button class="mdui-btn mdui-btn-dense"><input onclick="bw()" hidden="" type="radio" name="type" id="type-yandex" value="https://yandex.com/search/?text=" data-placeholder="Yandex搜索" /><label for="type-yandex"><span>yandex</span></label></button>
+													<button class="mdui-btn mdui-btn-dense"><input onclick="bw()" hidden="" type="radio" name="type" id="type-miji" value="https://mijisou.com/?q=" data-placeholder="秘迹搜索" /><label for="type-miji"><span>秘迹</span></label></button>
+													<button class="mdui-btn mdui-btn-dense"><input onclick="bw()" hidden="" type="radio" name="type" id="type-360" value="https://www.so.com/s?q=" data-placeholder="360好搜" /><label for="type-360"><span>360</span></label></button>
+													<button class="mdui-btn mdui-btn-dense"><input onclick="bw()" hidden="" type="radio" name="type" id="type-sogo" value="https://www.sogou.com/web?query=" data-placeholder="搜狗搜索" /><label for="type-sogo"><span>搜狗</span></label></button>
+												</div>
+											</li>
+											<li class="mdui-collapse-item">
+												<div class="mdui-collapse-item-header mdui-list-item mdui-ripple"><div class="mdui-list-item-content">工具</div><i class="mdui-collapse-item-arrow mdui-icon material-icons">keyboard_arrow_down</i></div>
+												<div class="mdui-collapse-item-body mdui-btn-group">
+													<button class="mdui-btn mdui-btn-dense"><input onclick="bw()" hidden="" type="radio" name="type" id="type-br" value="http://rank.chinaz.com/all/" data-placeholder="请输入网址(不带http://)" /><label for="type-br"><span>权重查询</span></label></button>
+													<button class="mdui-btn mdui-btn-dense"><input onclick="bw()" hidden="" type="radio" name="type" id="type-links" value="http://link.chinaz.com/" data-placeholder="请输入网址(不带http://)" /><label for="type-links"><span>友链检测</span></label></button>
+													<button class="mdui-btn mdui-btn-dense"><input onclick="bw()" hidden="" type="radio" name="type" id="type-icp" value="https://icp.aizhan.com/" data-placeholder="请输入网址(不带http://)" /><label for="type-icp"><span>备案查询</span></label></button>
+													<button class="mdui-btn mdui-btn-dense"><input onclick="bw()" hidden="" type="radio" name="type" id="type-ping" value="http://ping.chinaz.com/" data-placeholder="请输入网址(不带http://)" /><label for="type-ping"><span>PING检测</span></label></button>
+													<button class="mdui-btn mdui-btn-dense"><input onclick="bw()" hidden="" type="radio" name="type" id="type-404" value="http://tool.chinaz.com/Links/?DAddress=" data-placeholder="请输入网址(不带http://)" /><label for="type-404"><span>死链检测</span></label></button>
+													<button class="mdui-btn mdui-btn-dense"><input onclick="bw()" hidden="" type="radio" name="type" id="type-ciku" value="http://www.ciku5.com/s?wd=" data-placeholder="请输入关键词" /><label for="type-ciku"><span>关键词挖掘</span></label></button>
+												</div>
+											</li>
+											<li class="mdui-collapse-item">
+												<div class="mdui-collapse-item-header mdui-list-item mdui-ripple"><div class="mdui-list-item-content">社区</div><i class="mdui-collapse-item-arrow mdui-icon material-icons">keyboard_arrow_down</i></div>
+												<div class="mdui-collapse-item-body mdui-btn-group">
+													<button class="mdui-btn mdui-btn-dense"><input onclick="bw()" hidden="" type="radio" name="type" id="type-wechat" value="http://weixin.sogou.com/weixin?type=2&amp;query=" data-placeholder="微信" /><label for="type-wechat"><span>微信</span></label></button>
+													<button class="mdui-btn mdui-btn-dense"><input onclick="bw()" hidden="" type="radio" name="type" id="type-weibo" value="http://s.weibo.com/weibo/" data-placeholder="微博" /><label for="type-weibo"><span>微博</span></label></button>
+													<button class="mdui-btn mdui-btn-dense"><input onclick="bw()" hidden="" type="radio" name="type" id="type-douban" value="https://www.douban.com/search?q=" data-placeholder="豆瓣" /><label for="type-douban"><span>豆瓣</span></label></button>
+													<button class="mdui-btn mdui-btn-dense"><input onclick="bw()" hidden="" type="radio" name="type" id="type-why" value="https://ask.seowhy.com/search/?q=" data-placeholder="SEO问答社区" /><label for="type-why"><span>搜外问答</span></label></button>
+												</div>
+											</li>
+											<li class="mdui-collapse-item">
+												<div class="mdui-collapse-item-header mdui-list-item mdui-ripple"><div class="mdui-list-item-content">生活</div><i class="mdui-collapse-item-arrow mdui-icon material-icons">keyboard_arrow_down</i></div>
+												<div class="mdui-collapse-item-body mdui-btn-group">
+													<button class="mdui-btn mdui-btn-dense"><input onclick="bw()" hidden="" type="radio" name="type" id="type-快递100" value="http://www.kuaidi100.com/?" data-placeholder="快递100" /><label for="type-快递100"><span>快递100</span></label></button>
+													<button class="mdui-btn mdui-btn-dense"><input onclick="bw()" hidden="" type="radio" name="type" id="type-xiachufang" value="http://www.xiachufang.com/search/?keyword=" data-placeholder="下厨房" /><label for="type-xiachufang"><span>下厨房</span></label></button>
+													<button class="mdui-btn mdui-btn-dense"><input onclick="bw()" hidden="" type="radio" name="type" id="type-xiangha" value="https://www.xiangha.com/so/?q=caipu&amp;s=" data-placeholder="香哈菜谱" /><label for="type-xiangha"><span>香哈菜谱</span></label></button>
+													<button class="mdui-btn mdui-btn-dense"><input onclick="bw()" hidden="" type="radio" name="type" id="type-12306" value="http://www.12306.cn/?" data-placeholder="12306" /><label for="type-12306"><span>12306</span></label></button>
+													<button class="mdui-btn mdui-btn-dense"><input onclick="bw()" hidden="" type="radio" name="type" id="type-qunar" value="https://www.qunar.com/?" data-placeholder="去哪儿" /><label for="type-qunar"><span>去哪儿</span></label></button>
+												</div>
+											</li>
+										</ul>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div> 
+
+			
+			<div class="mdui-card-content mdui-ripple" id="show_hitokoto">害，上面这个搜索框终于弄成想要的样子了，但是不会写功能 ʅ( ･´‸･｀)ʃ</div>
+			
+			<div class="mdui-tab" mdui-tab>
+				<a href="#example1-tab1" class="mdui-ripple"></a>
+				<a href="#example1-tab2" class="mdui-ripple"></a>
+				<a href="#example1-tab3" class="mdui-ripple"></a>
+			</div>
+			<div id="example1-tab1" class="mdui-p-a-2">
+				
+				<br></br>
+				<br></br>
+				<br></br>
+				
+			</div>
+			<div id="example1-tab2" class="mdui-p-a-2">
+				
+				<br></br>
+				<br></br>
+				<br></br>
+			</div>
+			<div id="example1-tab3" class="mdui-p-a-2">
+				
+				<br></br>
+				<br></br>
+				<br></br>
+				
+			</div>
+		</div>
+		
+		<br/><br/>
+		
+		<footer class="mdui-color-grey-900">
+			<ul class="mdui-list mdui-center" style="max-width: 640px">
+				<li class="mdui-list-item mdui-ripple">
+					<div class="mdui-list-item-avatar"><img src="https://q1.qlogo.cn/g?b=sdk&k=qWak3lKWHOxtt19bPUkmIw&s=640"/></div>
+					<div class="mdui-list-item-content">
+						<div class="mdui-list-item-title">万里无云</div>
+						<div class="mdui-list-item-text mdui-list-item-one-line">
+							总有一片天空是万里无云的 ...
+						</div>
+					</div>
+					<a href="https://support.qq.com/products/57688" target="_blank">
+						<i class="mdui-list-item-icon mdui-icon material-icons">chat</i>
+					</a>
+				</li>
+			</ul>
+			<div class="mdui-bottom-nav mdui-bottom-nav-text-auto">
+				<a href="javascript:;" class="mdui-ripple mdui-text-color-white">
+					<i class="mdui-icon material-icons">code</i>
+					<label>获取源码</label>
+				</a>
+				<a href="javascript:;" class="mdui-ripple mdui-text-color-white">
+					<i class="mdui-icon material-icons">poll</i>
+					<label>站点统计</label>
+				</a>
+				<a href="javascript:;" class="mdui-ripple mdui-text-color-white">
+					<i class="mdui-icon material-icons">rss_feed</i>
+					<label>内容订阅</label>
+				</a>
+				<a href="javascript:;" mdui-dialog="{target: '#Qr_reward'}" class="mdui-ripple mdui-text-color-white">
+					<i class="mdui-icon material-icons">free_breakfast</i>
+					<label>请杯咖啡</label>
+				</a>
+				<a href="javascript:;" class="mdui-ripple mdui-text-color-white">
+					<i class="mdui-icon material-icons">queue_music</i>
+					<label>背景音乐</label>
+				</a>
+			</div>
+			<br/><br/>
+			<div class="mdui-center mdui-text-center mdui-ripple mdui-text-color-white-disabled" style="width: 80%">已倔强运行 <span id="showtime_run"></span> </div>
+			<div class="mdui-center mdui-text-center mdui-ripple mdui-text-color-white-disabled" style="width: 80%"><p>Copyright © 2020 <span href="./">万里无云</span> , All right reserved</p></div>
+			<br/>
+			<div class="mdui-center mdui-text-center mdui-ripple mdui-text-color-white-icon-disabled" style="width: 80%">
+				<div href="" target="_blank" rel="nofollow" class="mdui-text-color-white-icon-disabled">
+				鄂ICP备（我也不知道多少）号-0
+				</div>
+			</div>
+			<!--- div class="mdui-center mdui-text-center mdui-ripple mdui-text-color-white-icon-disabled" style="width: 80%">
+				<div href="" target="_blank" rel="nofollow" class="mdui-text-color-white-icon-disabled">
+				<img src="./image/beian.png" alt="" onerror="onerror=null;src='https://p0.ssl.qhmsg.com/dr/20_20_70/t019d21a72fec2d996b.png'">
+				湘公网安备 43070202000609号
+				</div>
+			</div -->
+			<br/><br/><br/>
+			<br/><br/>
+			<br/>
+		</footer>
+	</main>	
+	
+	<div class="mdui-dialog" id="Search_dialog">
+		<div class="mdui-dialog-title">Use Google's location service?</div>
+		<div class="mdui-dialog-content">Let Google help apps determine location. This means sending anonymous location data to Google, even when no apps are running.</div>
+		<div class="mdui-dialog-actions mdui-dialog-actions-stacked">
+			<button class="mdui-btn mdui-ripple">turn on speed boost</button>
+			<button class="mdui-btn mdui-ripple">no thanks</button>
+		</div>
+	</div>
+	<div class="mdui-dialog" id="Qr_reward">
+		<ul class="mdui-list mdui-center">
+			<li class="mdui-list-item mdui-ripple">
+				<div class="mdui-list-item-avatar"><img src="https://q1.qlogo.cn/g?b=sdk&k=qWak3lKWHOxtt19bPUkmIw&s=640"/></div>
+				<div class="mdui-list-item-content">
+					<div class="mdui-list-item-title">万里无云</div>
+					<div class="mdui-list-item-text mdui-list-item-one-line">
+						听说你想给我来一杯mojito ...
+					</div>
+				</div>
+				<a href="https://support.qq.com/products/57688" target="_blank">
+					<i class="mdui-list-item-icon mdui-icon material-icons">attach_money</i>
+				</a>
+			</li>
+		</ul>
+		<div class="mdui-tab mdui-tab-full-width" id="Qr_reward_tab">
+			<a href="#Qr_reward_tab1" class="mdui-ripple">微信</a>
+			<a href="#Qr_reward_tab2" class="mdui-ripple">支付宝</a>
+			<a href="#Qr_reward_tab3" class="mdui-ripple">QQ</a>
+			<a href="#Qr_reward_tab4" class="mdui-ripple">其他</a>
+		</div>
+		<div id="Qr_reward_tab1" class="mdui-p-a-2">
+			<p>tab 1</p>
+			<p>tab 1</p>
+			<p>tab 1</p>
+			<p>tab 1</p>
+			<p>tab 1</p>
+			<p>tab 1</p>
+		</div>
+		<div id="Qr_reward_tab2" class="mdui-p-a-2">
+			<p>tab 2</p>
+			<p>tab 2</p>
+			<p>tab 2</p>
+			<p>tab 2</p>
+			<p>tab 2</p>
+			<p>tab 2</p>
+		</div>
+		<div id="Qr_reward_tab3" class="mdui-p-a-2">
+			<p>tab 3</p>
+			<p>tab 3</p>
+			<p>tab 3</p>
+			<p>tab 3</p>
+			<p>tab 3</p>
+			<p>tab 3</p>
+		</div>
+		<div id="Qr_reward_tab4" class="mdui-p-a-2">
+			<p>tab 3</p>
+			<p>tab 3</p>
+			<p>tab 3</p>
+			<p>tab 3</p>
+			<p>tab 3</p>
+			<p>tab 3</p>
+		</div>
+	</div>
+
+	
+	
+	
+	
+	
+	<div class="mdui-fab-wrapper" mdui-fab="{trigger: 'hover'}">
+		<button class="mdui-fab mdui-ripple mdui-color-green-900">
+			<i class="mdui-icon material-icons">apps</i>
+			<i class="mdui-icon mdui-fab-opened material-icons">close</i>
+		</button>
+		<div class="mdui-fab-dial" id="cornertool" style="height: 0px;">
+			<button class="mdui-fab mdui-ripple mdui-fab-mini mdui-color-white mdui-fab-hide" id="backtotop" style="transition-delay: 0ms;" onclick="pageScroll()"><i class="mdui-icon material-icons"></i></button>
+			<button class="mdui-fab mdui-ripple mdui-fab-mini mdui-color-white mdui-fab-hide" onclick="switchQrCode()" style="transition-delay: 30ms;"><i class="mdui-icon material-icons">phonelink</i></button>
+		</div>
+	</div>
+	
+	<!-- pageQrCode -->
+	<div id="pageQrCode" class="mdui-menu" onclick="$('#pageQrCode').removeClass('mdui-menu-open')">
+		<canvas width="150" height="150"></canvas>
+	</div>
+	
+	
+	<script src="https://cdn.bootcdn.net/ajax/libs/mdui/1.0.0/js/mdui.min.js"></script>
+	
+	<!-- mdrQrCode -->
+	<script src="//cdn.bootcss.com/jquery.qrcode/1.0/jquery.qrcode.min.js"></script>
+	<script>
+		var $ = mdui.$;
+		function getQrCode()
+		{
+			$('#pageQrCode').html('');
+			$('#pageQrCode').qrcode(
+			{
+				width: 150,
+				height: 150,
+				text: window.location.href
+			})
+		}
+		getQrCode();
+
+		function switchQrCode()
+		{
+			if ($('#pageQrCode').hasClass('mdui-menu-open'))
+			{
+				$('#pageQrCode').removeClass('mdui-menu-open')
+			}
+			else
+			{
+				$('#pageQrCode').addClass('mdui-menu-open')
+			}
+		}
+	</script>
+	
+	<script>
+		function show_time() {
+			window.setTimeout("show_time()",1000);
+			var T = new Date()
+				N = T.getFullYear()
+				Y = T.getMonth()+1
+				R = T.getDate()
+				S = T.getHours()
+				F = T.getMinutes()
+				M = T.getSeconds()
+				HM = T.getMilliseconds()
+				W = T.getDay()
+					B = new Date("2020-07-30 08:00:00"),
+				CT = (T.getTime()-B.getTime()),
+				CTY = 24*60*60*1000,
+				CD = CT/CTY,
+				CDY = Math.floor(CD),
+				CH= (CD-CDY)*24,
+				CHY = Math.floor(CH),
+				CF = (CH-CHY)*60,
+				CFY = Math.floor(CF),
+				CMY = Math.floor((CF-CFY)*60);
+			if(W==1)
+				WT = "一"
+			else if(W==2)
+				WT = "二"
+			else if(W==3)
+				WT = "三"
+			else if(W==4)
+				WT = "四"
+			else if(W==5)
+				WT = "五"
+			else if(W==6)
+				WT = "六"
+			else if(W==7)
+				WT = "天"
+			showtime_now.innerHTML = S+" : "+F+" : "+M;	
+			showtime_run.innerHTML = CDY+" 天 "+CHY+" 时 "+CFY+" 分 "+CMY+" 秒";
+			showtime_week.innerHTML = N+" 年 "+Y+" 月 "+R+" 日	星期"+WT;
+		};
+		show_time();
+	</script>
+		
+	<script>
+		function pageScroll(){
+			window.scrollBy(0,-100);
+			scrolldelay = setTimeout('pageScroll()',50);
+			var sTop=document.documentElement.scrollTop+document.body.scrollTop;
+			if(sTop==0) clearTimeout(scrolldelay);
+		}
+	</script>
+	
+	<script>
+		var $ = mdui.$;
+		var tab = new mdui.Tab('#Qr_reward_tab');
+		
+		$('#Qr_reward').on('open.mdui.dialog', function () {
+			tab.handleUpdate();
+		});
+	</script>
+			
+		<script type="text/javascript">
+			! function() {
+				function g() {
+					h(), i(), j(), k(),z(),zi()
+				}
+				
+				function zi() {
+					if (document.getElementById("search-text").getAttribute("placeholder")=='影视搜索') {
+						var a = document.querySelector('input[name="type"][onclick="' + bq() + '"]');
+						a && (a.checked = !0, l(a))
+					}			
+				}
+				function z() {
+					return document.querySelector('input[name="type"]:checked').getAttribute("onclick")
+				}
+				function h() {
+					d.checked = s()
+				}
+				
+				function i() {
+					var a = document.querySelector('input[name="type"][value="' + p() + '"]');
+					a && (a.checked = !0, l(a))
+				}
+				
+				function j() {
+					v(u())
+				}
+				
+				function k() {
+					w(t())
+				}
+				
+				function l(a) {
+					for (var b = 0; b < e.length; b++) e[b].classList.remove("s-current");
+					a.parentNode.parentNode.parentNode.classList.add("s-current")
+				}
+				
+				function m(a, b) {
+					window.localStorage.setItem("superSearch" + a, b)
+				}
+				
+				function n(a) {
+					return window.localStorage.getItem("superSearch" + a)
+				}
+				
+				function o(a) {
+					f = a.target, v(u()), w(a.target.value), m("type", a.target.value), c.focus(), l(a.target)
+				}
+				
+				function p() {
+					var b = n("type");
+					return b || a[0].value
+				}
+				
+				function q(a) {
+					m("newWindow", a.target.checked ? 1 : -1), x(a.target.checked)
+				}
+				
+				function r(a) {
+					return a.preventDefault(), "" == c.value ? (c.focus(), !1) : (w(t() + c.value), x(s()), s() ? window.open(b.action, +new Date) : location.href = b.action, void 0)
+				}
+				
+				function s() {
+					var a = n("newWindow");
+					return a ? 1 == a : !0
+				}
+				
+				function t() {
+					return document.querySelector('input[name="type"]:checked').value
+				}
+				
+				function u() {
+					return document.querySelector('input[name="type"]:checked').getAttribute("data-placeholder")
+				}
+				
+				
+				function v(a) {
+					c.setAttribute("placeholder", a)
+				}
+				
+				function w(a) {
+					b.action = a
+				}
+				
+				function x(a) {
+					a ? b.target = "_blank" : b.removeAttribute("target")
+				}
+				var y, a = document.querySelectorAll('input[name="type"]'),
+					b = document.querySelector("#super-search-fm"),
+					c = document.querySelector("#search-text"),
+					d = document.querySelector("#set-search-blank"),
+					e = document.querySelectorAll(".search-group"),
+					f = a[0];
+				for (g(), y = 0; y < a.length; y++) a[y].addEventListener("change", o);
+				d.addEventListener("change", q), b.addEventListener("submit", r)
+			}();
+		</script> 
+		<script type="text/javascript">
+			var input = document.getElementById('search-text')
+			var oUl = document.getElementById('search_tips')
+			input.onkeyup = function () {
+				var value = this.value;
+				var oScript = document.createElement('script');
+				oScript.src = 'https://sp0.baidu.com/5a1Fazu8AA54nxGko9WTAnF6hhy/su?wd=' + value + '&cb=aa'
+				// 核心在这里，
+				// 1.实时获取参数 value
+				// 2.cb=返回值的处理函数（aa）
+				document.body.appendChild(oScript)
+			}
+			function aa(data) {
+				oUl.style.display = 'block';
+				var list = data.s;
+				var str = '';
+				if (list.length > 0 && document.getElementById("search-text").getAttribute("placeholder")=='百度一下') {
+					list.forEach(function (ele, index) {
+						
+						str += '<a href="https://www.baidu.com/s?wd=' + ele + '"><li class="mdui-list-item mdui-ripple"><div class="mdui-list-item-content mdui-float-left"><nobr>' + ele + '</nobr></div><i class="mdui-list-item-icon mdui-icon material-icons mdui-float-right">arrow_forward</i></li></a>';
+							
+						/*
+						str += '<a href="https://www.baidu.com/s?wd=' + ele + '" class="mdui-list-item mdui-ripple"><li><div class="mdui-list-item-content"><nobr>' + ele + '</nobr></div><i class="mdui-list-item-icon mdui-icon material-icons">send</i></li></a>';
+						*/
+					})
+					oUl.innerHTML = str;
+				} else {
+					oUl.style.display = 'none';
+				}
+			}
+		</script> 
+		
+</body>
+</html>
+
+<!--
+	
+	 mdui-tooltip="{content: '导航栏', position: 'buttom', delay: 1000}"
+	
+	
+	
+	mdui.snackbar({
+		message: 'Archived',
+			buttonText: 'undo',
+			onClick: function(){
+			mdui.alert('点击了 Sanckbar');
+		},
+		onButtonClick: function(){
+			mdui.alert('点击了按钮');
+		},
+		onClose: function(){
+			mdui.alert('关闭了');
+		}
+	});
+	
+<div class="mdui-container">
+  <button class="mdui-btn mdui-color-theme-accent" id="open">open</button>
+</div>
+
+	var $ = mdui.$;
+
+$('#open').on('click', function () {
+  mdui.snackbar({
+    message: 'Archived',
+    buttonText: 'undo',
+    onClick: function(){
+      mdui.alert('点击了 Sanckbar');
+    },
+    onButtonClick: function(){
+      mdui.alert('点击了按钮');
+    },
+    onClose: function(){
+      mdui.alert('关闭了');
+    }
+  });
+});
+
+
+
+-->
