@@ -1,6 +1,6 @@
 # 我的主页
 
-[![GitHub release](https://img.shields.io/github/release/maicong/music.svg?style=flat-square)](https://github.com/Hovthen/hovPage/releases)
+[![GitHub release](https://img.shields.io/github/release/Hovthen/hovPage.svg?style=flat-square)](https://github.com/Hovthen/hovPage/releases)
 [![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](#LICENSE)
 
 
@@ -8,7 +8,7 @@
 演示：[https://github.hovthen.com](https://github.hovthen.com)
 
 ## 特别鸣谢
-使用了 [闲渡搜索]{https://github.com/xiandus/search} 的搜索框代码并进行了修改，感谢相关作者以及相关项目！
+使用了 [闲渡搜索](https://github.com/xiandus/search) 的搜索框代码并进行了修改，感谢相关作者以及相关项目！
 首图目前使用的是 [刘明野的工具箱](https://tool.liumingye.cn/bingimg/) 每日Bing图API接口，感谢！
 
 ## 图标字体
@@ -19,4 +19,5 @@
 ## 其他说明
 写的看着很乱，不过总体来说还是比较清晰的。
 主要还是自用
+
 
